@@ -16,7 +16,6 @@ defmodule TunezWeb.CoreComponents do
   """
   use Phoenix.Component
   use Gettext, backend: TunezWeb.Gettext
-
   alias Phoenix.LiveView.JS
 
   @doc """
