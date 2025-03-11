@@ -27,16 +27,36 @@
       "primary_key?": false,
       "references": null,
       "size": null,
-      "source": "biography",
+      "source": "bio",
       "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "generated?": false,
+      "primary_key?": false,
+      "references": null,
+      "size": null,
+      "source": "inserted_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": false,
+      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "generated?": false,
+      "primary_key?": false,
+      "references": null,
+      "size": null,
+      "source": "updated_at",
+      "type": "utc_datetime_usec"
     }
   ],
   "base_filter": null,
   "check_constraints": [],
   "custom_indexes": [],
   "custom_statements": [],
-  "has_create_action": false,
-  "hash": "E6CF4D55EA24BA5A28A9780092BDFC7CF91B3AEB54CD8BF51C5844751C13FAAE",
+  "has_create_action": true,
+  "hash": "BEB44D0F5F845364EA5D26D2083010941FA85FBAEDC81668BDF8D40291D89FBF",
   "identities": [],
   "multitenancy": {
     "attribute": null,

@@ -6,6 +6,11 @@ defmodule Tunez.Music.Artist do
     repo Tunez.Repo
   end
 
+  actions do
+    defaults [:read, :destroy, :create, :update]
+    default_accept [:name, :bio]
+  end
+
   attributes do
     uuid_primary_key :id
 
@@ -13,6 +18,8 @@ defmodule Tunez.Music.Artist do
       allow_nil? false
     end
 
-    attribute :biography, :string
+    attribute :bio, :string
+    create_timestamp :inserted_at
+    update_timestamp :updated_at
   end
 end
