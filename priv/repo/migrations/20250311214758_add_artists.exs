@@ -1,4 +1,4 @@
-defmodule Tunez.Repo.Migrations.CreateArtists do
+defmodule Tunez.Repo.Migrations.AddArtists do
   @moduledoc """
   Updates resources based on their most recent snapshots.
 
@@ -9,7 +9,7 @@ defmodule Tunez.Repo.Migrations.CreateArtists do
 
   def up do
     create table(:artists, primary_key: false) do
-      add :id, :uuid, null: false, default: fragment("gen_random_uuid()"), primary_key: true
+      add :id, :uuid, null: false, default: fragment("uuid_generate_v7()"), primary_key: true
       add :name, :text, null: false
       add :bio, :text
 

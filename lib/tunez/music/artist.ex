@@ -12,7 +12,7 @@ defmodule Tunez.Music.Artist do
   end
 
   attributes do
-    uuid_primary_key :id
+    uuid_v7_primary_key :id
 
     attribute :name, :string do
       allow_nil? false
