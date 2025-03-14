@@ -13,7 +13,7 @@ registry:
   password:
     - KAMAL_REGISTRY_PASSWORD
 builder:
-  arch: amd64
+  arch: arm64
 env:
   clear:
     PHX_SERVER: true
