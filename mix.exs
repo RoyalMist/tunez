@@ -42,6 +42,7 @@ defmodule Tunez.MixProject do
       {:ash_phoenix, "~> 2.0"},
       {:ash_postgres, "~> 2.0"},
       {:bandit, "~> 1.5"},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:dns_cluster, "~> 0.2"},
       {:ecto_sql, "~> 3.10"},
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
@@ -57,6 +58,7 @@ defmodule Tunez.MixProject do
        depth: 1},
       {:igniter, "~> 0.5", only: [:dev, :test]},
       {:jason, "~> 1.2"},
+      {:mix_audit, "~> 2.1", only: [:dev, :test], runtime: false},
       {:oban, "~> 2.0"},
       {:open_api_spex, "~> 3.0"},
       {:phoenix, "~> 1.7"},
@@ -67,14 +69,13 @@ defmodule Tunez.MixProject do
       {:phoenix_live_view, "~> 1.0"},
       {:picosat_elixir, "~> 0.2"},
       {:postgrex, ">= 0.0.0"},
+      {:sobelow, "~> 0.13", only: [:dev, :test], runtime: false},
       {:sourceror, "~> 1.7", only: [:dev, :test]},
       {:swoosh, "~> 1.5"},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:tailwind_formatter, "~> 0.4.2", only: [:dev, :test], runtime: false},
       {:telemetry_metrics, "~> 1.0"},
-      {:telemetry_poller, "~> 1.0"},
-      {:mix_audit, "~> 2.1", only: [:dev, :test], runtime: false},
-      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
+      {:telemetry_poller, "~> 1.0"}
     ]
   end
 
