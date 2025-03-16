@@ -73,7 +73,7 @@ defmodule Tunez.MixProject do
       {:sourceror, "~> 1.7", only: [:dev, :test]},
       {:swoosh, "~> 1.5"},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
-      {:tailwind_formatter, "~> 0.4.2", only: [:dev, :test], runtime: false},
+      {:tailwind_formatter, "~> 0.4", only: [:dev, :test], runtime: false},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"}
     ]
