@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
     branches: [main]
@@ -12,6 +11,7 @@ permissions:
   contents: read
 
 env:
+  RUBY_VERSION: 3.4.2
   OTP_VERSION: 27.2.3
   ELIXIR_VERSION: 1.18.3
 
@@ -98,23 +98,31 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       MIX_ENV: prod
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Set up elixir
-        uses: erlef/setup-beam@v1
+      - name: Docker buildx
+        uses: docker/setup-buildx-action@v3
+      - name: GitHub runtime for cache
+        uses: crazy-max/ghaction-github-runtime@v3
+      - name: Load secrets
+        uses: 1password/load-secrets-action@v2
         with:
-          elixir-version: ${{ env.ELIXIR_VERSION }}
-          otp-version: ${{ env.OTP_VERSION }}
-      - name: Cache
-        uses: actions/cache@v4
+          export-env: false
+      - name: Set up SSH connection
+        run: |
+          mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+          eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa
+          ssh-keyscan $SERVER_ADDR >> ~/.ssh/known_hosts
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          path: |
-            deps
-            _build
-          key: ${{ env.MIX_ENV }}-${{ runner.os }}-${{ env.ELIXIR_VERSION }}-${{ env.OTP_VERSION }}-mix-${{ hashFiles('**/mix.lock') }}
-          restore-keys: ${{ env.MIX_ENV }}-${{ runner.os }}-${{ env.ELIXIR_VERSION }}-${{ env.OTP_VERSION }}-mix-
-      - name: Install dependencies
-        run: mix deps.get --only prod
-      - name: Build
-        run: mix do assets.deploy, compile --warnings-as-errors, release --overwrite
+          ruby-version: 3.3.0
+          bundler-cache: true
+          cache-version: "tools-v1-${{ runner.os }}"
+      - name: Kamal install
+        run: gem install kamal
+      - name: Kamal deploy
+        run: kamal deploy

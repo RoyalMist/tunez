@@ -4,8 +4,8 @@ servers:
   web:
     - 195.15.213.134
 proxy:
-  ssl: false
-  host: tunez.app
+  ssl: true
+  host: tunez.thibault.swiss
   app_port: 4000
 registry:
   username: royalmist
