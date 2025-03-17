@@ -2,8 +2,7 @@ service: tunez
 image: my-user/my-app
 servers:
   web:
-    - 192.168.64.12
-    - 192.168.64.13
+    - 195.15.213.134
 proxy:
   ssl: false
   host: tunez.app
@@ -25,16 +24,3 @@ env:
     - TOKEN_SIGNING_SECRET
 ssh:
   user: ubuntu
-accessories:
-  db:
-    image: postgres:17
-    host: 192.168.64.11
-    port: 5432
-    env:
-      clear:
-        POSTGRES_DB: "tunez"
-      secret:
-        - POSTGRES_USER
-        - POSTGRES_PASSWORD
-    directories:
-      - data:/var/lib/postgresql/data
