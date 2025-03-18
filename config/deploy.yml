@@ -31,6 +31,6 @@ env:
     - SECRET_KEY_BASE
     - TOKEN_SIGNING_SECRET
 aliases:
-  console: app exec --interactive --reuse "bin/tunez remote"
+  console: app exec --interactive --reuse "./bin/tunez remote"
   shell: app exec --interactive --reuse "bash"
   logs: app logs -f
