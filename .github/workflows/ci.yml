@@ -133,15 +133,15 @@ jobs:
       - name: Build
         run: mix do assets.deploy, compile --warnings-as-errors, release --overwrite
       - name: Set up Ruby
-        if: github.ref_type == 'tag' && github.ref == 'refs/heads/main'
+        if: ${{ contains(github.ref, 'refs/tags/') }}
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
           cache-version: "kamal-${{ runner.os }}"
       - name: Kamal install
-        if: github.ref_type == 'tag' && github.ref == 'refs/heads/main'
+        if: ${{ contains(github.ref, 'refs/tags/') }}
         run: gem install kamal
       - name: Deploy
-        if: github.ref_type == 'tag' && github.ref == 'refs/heads/main'
+        if: ${{ contains(github.ref, 'refs/tags/') }}
         run: kamal deploy
