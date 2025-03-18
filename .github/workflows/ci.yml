@@ -115,7 +115,6 @@ jobs:
         run: |
           mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
           eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa
-          ssh-keyscan $SERVER_ADDR >> ~/.ssh/known_hosts
       - name: Set up elixir
         uses: erlef/setup-beam@v1
         with:
@@ -139,7 +138,7 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-          cache-version: "tools-v1-${{ runner.os }}"
+          cache-version: "kamal-${{ runner.os }}"
       - name: Kamal install
         if: github.ref_type == 'tag' && github.ref == 'refs/heads/main'
         run: gem install kamal
