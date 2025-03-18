@@ -1,4 +1,4 @@
 #!/bin/sh
 
 echo "Booting app version $KAMAL_VERSION on $KAMAL_HOSTS..."
-#/app/bin/migrate
+/app/bin/migrate
