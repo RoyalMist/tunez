@@ -16,6 +16,7 @@ if config_env() == :prod do
 
   config :tunez, Tunez.Repo,
     url: database_url,
+    ssl: [cacerts: :public_key.cacerts_get()],
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
     socket_options: maybe_ipv6
 
