@@ -12,4 +12,4 @@ WORKDIR "/app"
 RUN chown nobody /app
 COPY --chown=nobody:root ./_build/prod/rel/tunez/ ./
 USER nobody
-CMD ["/app/bin/server"]
+CMD ["/app/bin/migrate && /app/bin/server"]
