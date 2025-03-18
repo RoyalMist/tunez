@@ -137,8 +137,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
-          bundler-cache: true
-          cache-version: "kamal-${{ runner.os }}"
       - name: Kamal install
         if: ${{ contains(github.ref, 'refs/tags/') }}
         run: gem install kamal
