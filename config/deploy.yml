@@ -1,18 +1,21 @@
 service: tunez
 image: my-user/my-app
+ssh:
+  user: ubuntu
 servers:
   web:
     - 195.15.213.134
-proxy:
-  ssl: true
-  host: tunez.thibault.swiss
-  app_port: 4000
 registry:
-  username: royalmist
+  username:
+    - KAMAL_REGISTRY_USERNAME
   password:
     - KAMAL_REGISTRY_PASSWORD
 builder:
   arch: amd64
+proxy:
+  ssl: true
+  host: tunez.thibault.swiss
+  app_port: 4000
 env:
   clear:
     PHX_SERVER: true
@@ -22,5 +25,3 @@ env:
     - DATABASE_URL
     - SECRET_KEY_BASE
     - TOKEN_SIGNING_SECRET
-ssh:
-  user: ubuntu
