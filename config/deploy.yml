@@ -1,5 +1,6 @@
 service: tunez
 image: royalmist/tunez
+context: .
 ssh:
   user: ubuntu
 servers:

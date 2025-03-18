@@ -10,6 +10,6 @@ RUN apt-get update -y && \
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 WORKDIR "/app"
 RUN chown nobody /app
-COPY --chown=nobody:root _build/prod/rel/tunez/ ./
+COPY --chown=nobody:root ./_build/prod/rel/tunez/ ./
 USER nobody
 CMD ["/app/bin/server"]
