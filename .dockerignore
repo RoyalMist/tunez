@@ -1,3 +1,4 @@
+.elixir_ls
 .dockerignore
 .git
 !.git/HEAD
@@ -6,8 +7,9 @@
 /doc/
 /test/
 /tmp/
-.elixir_ls
 /deps/
+/_build/dev/
+/_build/test/
 *.ez
 erl_crash.dump
 /assets/node_modules/
