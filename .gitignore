@@ -1,5 +1,8 @@
+.DS_Store
+/.elixir_ls/
 /_build/
 /cover/
+/data/
 /deps/
 /doc/
 /.fetch

@@ -4,9 +4,9 @@ defmodule Tunez.Accounts.Token do
     domain: Tunez.Accounts,
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication.TokenResource],
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshSqlite.DataLayer
 
-  postgres do
+  sqlite do
     table "tokens"
     repo Tunez.Repo
   end

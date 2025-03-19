@@ -1,8 +1,8 @@
 import Config
 
 config :tunez, Oban,
-  engine: Oban.Engines.Basic,
-  notifier: Oban.Notifiers.Postgres,
+  engine: Oban.Engines.Lite,
+  notifier: Oban.Notifiers.PG,
   queues: [default: 10],
   repo: Tunez.Repo
 

@@ -4,7 +4,7 @@ defmodule Tunez.Accounts.User do
     domain: Tunez.Accounts,
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication],
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshSqlite.DataLayer
 
   authentication do
     add_ons do
@@ -31,7 +31,7 @@ defmodule Tunez.Accounts.User do
     end
   end
 
-  postgres do
+  sqlite do
     table "users"
     repo Tunez.Repo
   end

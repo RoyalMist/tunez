@@ -1,4 +1,4 @@
-defmodule Tunez.Repo.Migrations.AddOban do
+defmodule Lite.Repo.Migrations.AddOban do
   use Ecto.Migration
 
   use Ecto.Migration

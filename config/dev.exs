@@ -1,13 +1,10 @@
 import Config
 
 config :tunez, Tunez.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "tunez_dev",
+  database: Path.expand("../data/tunez_dev.db", __DIR__),
+  pool_size: 5,
   stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  show_sensitive_data_on_connection_error: true
 
 config :tunez, TunezWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4000],

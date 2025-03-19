@@ -4,12 +4,9 @@ config :tunez, token_signing_secret: "Lxtzvlw+Wtt4ko8i+4h8uleaCnigDDyL"
 config :ash, disable_async?: true
 
 config :tunez, Tunez.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "tunez_test#{System.get_env("MIX_TEST_PARTITION")}",
-  pool: Ecto.Adapters.SQL.Sandbox,
-  pool_size: System.schedulers_online() * 2
+  database: Path.expand("../data/tunez_test.db", __DIR__),
+  pool_size: 5,
+  pool: Ecto.Adapters.SQL.Sandbox
 
 config :tunez, TunezWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],

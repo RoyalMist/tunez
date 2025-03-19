@@ -1,7 +1,7 @@
 defmodule Tunez.Music.Artist do
-  use Ash.Resource, otp_app: :tunez, domain: Tunez.Music, data_layer: AshPostgres.DataLayer
+  use Ash.Resource, otp_app: :tunez, domain: Tunez.Music, data_layer: AshSqlite.DataLayer
 
-  postgres do
+  sqlite do
     table "artists"
     repo Tunez.Repo
   end
