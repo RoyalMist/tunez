@@ -85,14 +85,13 @@ config :esbuild,
   ]
 
 config :tailwind,
-  version: "3.4.3",
+  version: "4.0.9",
   tunez: [
     args: ~w(
-      --config=tailwind.config.js
-      --input=css/app.css
-      --output=../priv/static/assets/app.css
+      --input=assets/css/app.css
+      --output=priv/static/assets/app.css
     ),
-    cd: Path.expand("../assets", __DIR__)
+    cd: Path.expand("..", __DIR__)
   ]
 
 config :logger, :console,
