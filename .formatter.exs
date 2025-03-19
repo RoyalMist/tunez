@@ -5,7 +5,7 @@
     :ash_admin,
     :ash_authentication_phoenix,
     :ash_authentication,
-    :ash_postgres,
+    :ash_sqlite,
     :ash_json_api,
     :ash,
     :ecto,
