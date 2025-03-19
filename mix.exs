@@ -38,7 +38,7 @@ defmodule Tunez.MixProject do
       {:ash_authentication, "~> 4.0"},
       {:ash_authentication_phoenix, "~> 2.0"},
       {:ash_json_api, "~> 1.0"},
-      {:ash_oban, "~> 0.3"},
+      {:ash_oban, "~> 0.4"},
       {:ash_phoenix, "~> 2.0"},
       {:ash_postgres, "~> 2.0"},
       {:bandit, "~> 1.5"},
