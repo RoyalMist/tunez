@@ -22,7 +22,7 @@ proxy:
     path: /
     timeout: 10
 volumes:
-  - "brickstreet_storage:/app/data"
+  - "tunez_storage:/app/data:rw"
 env:
   clear:
     PHX_SERVER: true
