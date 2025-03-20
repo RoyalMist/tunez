@@ -9,7 +9,9 @@ RUN apt-get update -y && \
     rm -f /var/lib/apt/lists/*_*
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 WORKDIR "/app"
-RUN chown nobody /app
-COPY --chown=nobody:root ./_build/prod/rel/tunez/ ./
-USER nobody
+COPY ./_build/prod/rel/tunez/ ./
+RUN groupadd --system --gid 1000 elixir && \
+    useradd elixir --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
+    chown -R elixir:elixir /app
+USER 1000:1000
 CMD ["./bin/start"]
