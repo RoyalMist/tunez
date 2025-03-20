@@ -2,6 +2,7 @@ import Config
 config :tunez, Oban, testing: :manual
 config :tunez, token_signing_secret: "Lxtzvlw+Wtt4ko8i+4h8uleaCnigDDyL"
 config :ash, disable_async?: true
+config :bcrypt_elixir, log_rounds: 1
 
 config :tunez, Tunez.Repo,
   database: Path.expand("../data/tunez_test.db", __DIR__),
