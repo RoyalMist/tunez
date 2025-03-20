@@ -8,10 +8,10 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -f /var/lib/apt/lists/*_*
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
-WORKDIR "/app"
+WORKDIR /app
 COPY ./_build/prod/rel/tunez/ ./
-RUN groupadd --system --gid 1000 elixir && \
-    useradd elixir --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
+RUN groupadd --system --gid 2000 elixir && \
+    useradd elixir --uid 2000 --gid 2000 && \
     chown -R elixir:elixir /app
-USER 1000:1000
+USER 2000:2000
 CMD ["./bin/start"]
