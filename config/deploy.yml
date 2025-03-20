@@ -22,12 +22,13 @@ proxy:
     path: /
     timeout: 10
 volumes:
-  - "brickstreet_storage:/rails/storage"
+  - "brickstreet_storage:/app/data"
 env:
   clear:
     PHX_SERVER: true
     POOL_SIZE: "10"
     PHX_HOST: "tunez.app"
+    DATABASE_PATH: /app/data
   secret:
     - SECRET_KEY_BASE
     - TOKEN_SIGNING_SECRET
