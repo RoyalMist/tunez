@@ -119,7 +119,7 @@ jobs:
       - name: Install dependencies
         run: mix deps.get --only prod
       - name: Build
-        run: mix do assets.deploy, compile --warnings-as-errors, release --overwrite
+        run: mix do assets.setup, assets.deploy, compile --warnings-as-errors, release --overwrite
       - name: Set up Ruby
         if: ${{ contains(github.ref, 'refs/tags/') }}
         uses: ruby/setup-ruby@v1
