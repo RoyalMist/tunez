@@ -7,6 +7,8 @@ defmodule Tunez.Application do
 
   @impl true
   def start(_type, _args) do
+    Tunez.Release.migrate()
+
     children = [
       {Oban,
        AshOban.config(

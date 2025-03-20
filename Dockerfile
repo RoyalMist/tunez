@@ -14,4 +14,4 @@ RUN groupadd --system --gid 2000 elixir && \
     useradd elixir --uid 2000 --gid 2000 && \
     chown -R elixir:elixir /app
 USER 2000:2000
-CMD ["./bin/start"]
+CMD ["./bin/server"]

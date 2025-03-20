@@ -1,7 +1,0 @@
-#!/bin/sh
-cd -P -- "$(dirname -- "$0")"
-./migrate &
-P1=$!
-./server &
-P2=$!
-wait $P1 $P2
