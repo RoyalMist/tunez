@@ -11,6 +11,7 @@ permissions:
   contents: read
 
 env:
+  SHELL: /bin/bash
   RUBY_VERSION: 3.4.2
   OTP_VERSION: 27.3
   ELIXIR_VERSION: 1.18.3
