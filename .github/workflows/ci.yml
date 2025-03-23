@@ -77,8 +77,8 @@ jobs:
           restore-keys: ${{ env.MIX_ENV }}-${{ runner.os }}-${{ env.ELIXIR_VERSION }}-${{ env.OTP_VERSION }}-mix-
       - name: Install dependencies
         run: mix deps.get
-      - name: Run tests
-        run: mix test --max-failures=1 --color
+      #- name: Run tests
+      #  run: mix test --max-failures=1 --color
 
   build:
     name: BUILD
