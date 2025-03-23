@@ -27,7 +27,7 @@ env:
   clear:
     PHX_SERVER: true
     POOL_SIZE: "10"
-    PHX_HOST: "tunez.app"
+    PHX_HOST: "tunez.thibault.swiss"
     DATABASE_PATH: "/app/data/tunez.db"
   secret:
     - SECRET_KEY_BASE
