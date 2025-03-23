@@ -13,6 +13,7 @@ RUN apt-get update -y && \
 COPY ./_build/prod/rel/tunez/ ./
 RUN groupadd --system --gid 2000 elixir && \
     useradd elixir --uid 2000 --gid 2000 && \
+    mkdir data && \
     chown -R elixir:elixir /app
 USER 2000:2000
 CMD ["./bin/server"]
