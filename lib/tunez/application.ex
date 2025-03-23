@@ -2,13 +2,10 @@ defmodule Tunez.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
-
   use Application
 
   @impl true
   def start(_type, _args) do
-    Tunez.Release.migrate()
-
     children = [
       {Oban,
        AshOban.config(
@@ -17,13 +14,11 @@ defmodule Tunez.Application do
        )},
       TunezWeb.Telemetry,
       Tunez.Repo,
+      {Ecto.Migrator,
+       repos: Application.fetch_env!(:tunez, :ecto_repos), skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:tunez, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Tunez.PubSub},
-      # Start the Finch HTTP client for sending emails
       {Finch, name: Tunez.Finch},
-      # Start a worker by calling: Tunez.Worker.start_link(arg)
-      # {Tunez.Worker, arg},
-      # Start to serve requests, typically the last entry
       TunezWeb.Endpoint,
       {AshAuthentication.Supervisor, [otp_app: :tunez]}
     ]
@@ -40,5 +35,9 @@ defmodule Tunez.Application do
   def config_change(changed, _new, removed) do
     TunezWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  defp skip_migrations?() do
+    System.get_env("RELEASE_NAME") != nil
   end
 end
