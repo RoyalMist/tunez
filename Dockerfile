@@ -6,7 +6,7 @@ ENV LC_ALL=en_US.UTF-8
 WORKDIR /app
 RUN apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get install -y libstdc++6 openssl libncurses6 locales ca-certificates && \
+    apt-get install -y bash libstdc++6 openssl libncurses6 locales ca-certificates && \
     apt-get clean && \
     rm -f /var/lib/apt/lists/*_* && \
     sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
