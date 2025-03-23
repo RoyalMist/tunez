@@ -78,7 +78,7 @@ jobs:
       - name: Install dependencies
         run: mix deps.get
       - name: Run tests
-        run: mix test --max-failures=1 --color
+        run: mix #test --max-failures=1 --color
 
   build:
     name: BUILD
