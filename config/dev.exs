@@ -1,7 +1,7 @@
 import Config
 
 config :tunez, Tunez.Repo,
-  database: Path.expand("../data/tunez_dev.db", __DIR__),
+  database: Path.expand("../tunez_dev.db", __DIR__),
   pool_size: 5,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true

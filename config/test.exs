@@ -5,7 +5,7 @@ config :ash, disable_async?: true
 config :bcrypt_elixir, log_rounds: 1
 
 config :tunez, Tunez.Repo,
-  database: Path.expand("../data/tunez_test.db", __DIR__),
+  database: Path.expand("../tunez_test.db", __DIR__),
   pool_size: 5,
   pool: Ecto.Adapters.SQL.Sandbox
 
