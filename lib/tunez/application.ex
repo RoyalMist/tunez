@@ -14,8 +14,7 @@ defmodule Tunez.Application do
        )},
       TunezWeb.Telemetry,
       Tunez.Repo,
-      {Ecto.Migrator,
-       repos: Application.fetch_env!(:tunez, :ecto_repos), skip: skip_migrations?()},
+      {Ecto.Migrator, repos: Application.fetch_env!(:tunez, :ecto_repos)},
       {DNSCluster, query: Application.get_env(:tunez, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Tunez.PubSub},
       {Finch, name: Tunez.Finch},
@@ -35,9 +34,5 @@ defmodule Tunez.Application do
   def config_change(changed, _new, removed) do
     TunezWeb.Endpoint.config_change(changed, removed)
     :ok
-  end
-
-  defp skip_migrations?() do
-    System.get_env("RELEASE_NAME") != nil
   end
 end
