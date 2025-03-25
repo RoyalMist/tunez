@@ -15,6 +15,7 @@ defmodule Tunez.Application do
       TunezWeb.Telemetry,
       Tunez.Repo,
       {Ecto.Migrator, repos: Application.fetch_env!(:tunez, :ecto_repos)},
+      {Litestream, litestream_config()},
       {DNSCluster, query: Application.get_env(:tunez, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Tunez.PubSub},
       {Finch, name: Tunez.Finch},
@@ -34,5 +35,9 @@ defmodule Tunez.Application do
   def config_change(changed, _new, removed) do
     TunezWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  defp litestream_config do
+    Application.get_env(:tunez, Litestream)
   end
 end

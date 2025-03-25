@@ -29,6 +29,7 @@ env:
     POOL_SIZE: "10"
     PHX_HOST: "tunez.thibault.swiss"
     DATABASE_PATH: "/app/data/tunez.db"
+    LITESTREAM_REPLICA_URL: "s3://my-bucket/my-db"
   secret:
     - SECRET_KEY_BASE
     - TOKEN_SIGNING_SECRET
