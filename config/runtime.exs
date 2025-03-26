@@ -41,7 +41,7 @@ if config_env() == :prod do
       System.get_env("TOKEN_SIGNING_SECRET") ||
         raise("Missing environment variable `TOKEN_SIGNING_SECRET`!")
 
-  config :my_app, Litestream,
+  config :tunez, Litestream,
     replica_url: System.fetch_env!("LITESTREAM_REPLICA_URL"),
     access_key_id: System.fetch_env!("LITESTREAM_ACCESS_KEY"),
     secret_access_key: System.fetch_env!("LITESTREAM_SECRET_KEY")
