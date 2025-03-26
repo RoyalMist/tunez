@@ -33,6 +33,8 @@ env:
   secret:
     - SECRET_KEY_BASE
     - TOKEN_SIGNING_SECRET
+    - LITESTREAM_ACCESS_KEY
+    - LITESTREAM_SECRET_KEY
 aliases:
   console: app exec --interactive --reuse "./bin/tunez remote"
   shell: app exec --interactive --reuse "bash"
