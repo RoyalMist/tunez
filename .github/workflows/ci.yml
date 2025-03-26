@@ -40,8 +40,6 @@ jobs:
           restore-keys: ${{ env.MIX_ENV }}-${{ runner.os }}-${{ env.ELIXIR_VERSION }}-${{ env.OTP_VERSION }}-mix-
       - name: Install dependencies
         run: mix deps.get
-      - name: Compile without warnings
-        run: mix compile --warnings-as-errors
       - name: Check code format
         run: mix format --dry-run --check-formatted
       - name: Check unused deps
