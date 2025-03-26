@@ -6,8 +6,6 @@ config :tunez, Oban,
   queues: [default: 10],
   repo: Tunez.Repo
 
-config :tunez, Litestream, repo: Tunez.Repo
-
 config :mime,
   extensions: %{"json" => "application/vnd.api+json"},
   types: %{"application/vnd.api+json" => ["json"]}
