@@ -1,4 +1,5 @@
 FROM ubuntu:noble
+ARG DEBIAN_FRONTEND=noninteractive
 ENV SHELL=/bin/bash
 ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US:en
