@@ -23,7 +23,7 @@ defmodule Tunez.Application do
     ]
 
     children =
-      if Mix.env() == :prod do
+      if Application.get_env(:tunez, Litestream) do
         children ++ [{Litestream, Application.get_env(:tunez, Litestream)}]
       else
         children
